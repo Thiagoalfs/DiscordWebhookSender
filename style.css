@@ -5,6 +5,10 @@ body {
     font-family: "Inconsolata", monospace;
 }
 
+label{
+    margin-top: 10px;
+}
+
 .fields {
     display:flex;
     flex-direction: column;
@@ -44,16 +48,17 @@ body {
     min-height:30px;
 }
 
-.big-text-box {
-    min-height: 150px;
+textarea {
+    resize:none;
 }
 
-input{
+input, textarea{
     vertical-align:top;
+    color: #ffffff;
 }
 
 input::placeholder, textarea::placeholder {
-    color: #ffffff;
+    color: #ffffff50;
 }
 
 .color-left {
@@ -90,6 +95,15 @@ input::placeholder, textarea::placeholder {
 
 .bold {
     font-weight: bold;
+}
+
+.markdown {
+    white-space: pre-wrap;
+}
+
+.markdown a {
+    color: #58a6ff;
+    text-decoration: underline;
 }
 
 .disabled {

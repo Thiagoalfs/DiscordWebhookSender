@@ -20,7 +20,7 @@
                         <button id="submit-button" type="submit">Submit</button>
                     </div>
                     <label for="message-content" class="normal">Message Content</label>
-                    <textarea class="text-box big-text-box" id="message-content" placeholder="Message content">
+                    <textarea class="text-box" rows="3" id="message-content" placeholder="Message content"></textarea>
                 </div>
 
                 <label for="embed-checkbox" class="normal">Embed</label>
@@ -43,32 +43,43 @@
             </section>
         </form>
         <section class="right-container">
-            <div class="message">
-                <div class="discord-message">
-                    <div class="webhook-name-div center-horizontal horizontal">
-                        <a id="webhookLink" href="https://discord.com/"><img class="webhookImage" src="https://cdn.discordapp.com/embed/avatars/0.png"></a>
-                        <p id="webhookName" class="normal bold">Webhook Name</p>
-                    </div>
+            <div class="message-container">
+                <div id="webhookImage">
+                    <a id="webhookLink" href="https://discord.com/"><img class="webhookImage" src="https://cdn.discordapp.com/embed/avatars/0.png"></a>
                 </div>
-                <div id="embed-message" class="embed-message disabled rounded">
-                    <div id="embed-color-left" class="color-left"></div>
-                    <div class="embed-message-content">
-                        <div class="embedAuthor horizontal bold center-horizontal">
-                            <a id="embedAuthorLink" ref="https://discord.com/"> <img class="embedAuthorImg" src="https://cdn.discordapp.com/embed/avatars/0.png"></a>
-                            <p id="embedAuthorName" class="normal">Embed Author</p>
+
+                <div class="message">
+                <div class="discord-message horizontal">
+                        <div class="discord-message-content">
+                            <div class="webhook-name-div horizontal">
+                                <p id="webhookName" class="normal bold">Webhook Name</p>
+                            </div>
+                            <div class="webhook-content-div">
+                                <div id="webhookContent" class="normal markdown">Webhook Content</div>
+                            </div>
                         </div>
-                        <div class="embedTitle">
-                            <p id="embedTitleText" class="normal bold">Embed Title</p>
+                    </div>
+                    <div id="embed-message" class="embed-message disabled rounded">
+                        <div id="embed-color-left" class="color-left"></div>
+                        <div class="embed-message-content">
+                            <div class="embedAuthor horizontal bold center-horizontal">
+                                <a id="embedAuthorLink" ref="https://discord.com/"> <img class="embedAuthorImg" src="https://cdn.discordapp.com/embed/avatars/0.png"></a>
+                                <p id="embedAuthorName" class="normal">Embed Author</p>
+                            </div>
+                            <div class="embedTitle">
+                                <p id="embedTitleText" class="normal bold">Embed Title</p>
+                            </div>
+                            <div class="embedDescription">
+                                <div id="embedDescriptionText" class="normal markdown">Embed Description</div>
+                            </div>
+                            <img class="rounded" id="embedImage" src="https://glitchii.github.io/embedbuilder/assets/media/banner.png">
                         </div>
-                        <div class="embedDescription">
-                            <p id="embedDescriptionText" class="normal">Embed Description</p>
-                        </div>
-                        <img class="rounded" id="embedImage" src="https://glitchii.github.io/embedbuilder/assets/media/banner.png">
                     </div>
                 </div>
             </div>
         </section>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

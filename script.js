@@ -1,6 +1,16 @@
 var embedColor = document.getElementById("embed-color").value;
 document.getElementById("embed-color-left").style.backgroundColor = embedColor;
 
+marked.setOptions({
+    gfm: true,
+    breaks: true,
+});
+
+function renderMarkdown(text) {
+    if (!text) return "";
+    return marked.parse(text);
+}
+
 document.getElementById("webhook-form").addEventListener("submit", async function (event) {
     var webhookLink = document.getElementById("webhook-link").value;
     var messageContent = document.getElementById("message-content").value;
@@ -73,12 +83,10 @@ document.getElementById("webhook-form").addEventListener("input", function (even
         embedColorBarLeft.style.backgroundColor = embedColor;
     }
     
+    document.getElementById("webhookContent").innerHTML = renderMarkdown(messageContent || "Webhook Content");
+    document.getElementById("embedDescriptionText").innerHTML = renderMarkdown(embedDescription || "Embed Description");
+    document.getElementById("embedTitleText").innerText = embedTitle || "Embed Title";
 
-
-    document.getElementById("embedDescriptionText").innerText = embedDescription;
-    document.getElementById("embedTitleText").innerText = embedTitle;
-
-    
 });
 
 document.getElementById("embed-checkbox").addEventListener("input", function (event){
