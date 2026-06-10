@@ -1,0 +1,44 @@
+.fields {
+    display:flex;
+    flex-direction: column;
+}
+
+.container {
+    display:flex;
+    justify-content:space-between;
+}
+
+.horizontal {
+    display:flex;
+    flex-direction: row;
+}
+
+.embed-message {
+    display:flex;
+    flex-direction: row;
+    background-color: gray;
+}
+
+.embed-message-content {
+    margin: 10px;
+}
+
+.rounded {
+    border-radius:5px;
+}
+
+.embedAuthorImg {
+    height:24px;
+    width:24px;
+    border-radius:50%;
+}
+
+.color-left {
+    height: auto;
+    width:5px;
+    background-color: blue;
+}
+
+.bold {
+    font-weight: bold;
+}

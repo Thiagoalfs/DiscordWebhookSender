@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form id="webhook-form" onKeyPress="refresh()">
+            <section class="left-container">
+                <div class="message-content fields">
+                    <div class="webhook-link-div">
+                        <label for="webhook-link">Webhook Link</label>
+                    </div>
+                    <div>
+                        <input type="text" class="text-box" id="webhook-link" placeholder="https://discord.com/api/webhooks/...">
+                        <button id="submit-button" type="submit">Submit</button>
+                    </div>
+                    <label for="message-content">Message Content</label>
+                    <input type="text" class="text-box" id="message-content" placeholder="Message content">
+                </div>
+
+                <div class="embed fields">
+                    <label for="embed-title">Embed Title</label>
+                    <input id="embed-title" type="text" class="text-box" placeholder="Title">
+
+                    <label for="embed-description">Embed Description</label>
+                    <input id="embed-description" type="text" class="text-box" placeholder="Description">
+
+                    <label for="embed-color">Embed Color</label>
+                    <input id="embed-color" type="text" class="text-box" placeholder="HEX color code" value="#5865F2">
+
+                    <label for="embed-image">Embed Image</label>
+                    <input type="text" class="text-box" id="embed-image" pattern="https?://.+" title="Include http://">
+                </div>
+                <div id="status-div"></div>
+            </section>
+        </form>
+        <section class="right-container">
+            <div class="message">
+                <div class="embed-message rounded">
+                    <div class="color-left rounded"></div>
+                    <div class="embed-message-content">
+                        <div class="embedAuthor horizontal bold">
+                            <a href="https://discord.com/"> <img class="embedAuthorImg" src="https://cdn.discordapp.com/embed/avatars/0.png"></a>
+                            <p id="embedAuthorName">Embed Author</p>
+                        </div>
+                        <div class="embedTitle">
+                            <p id="embedTitleText bold">Embed Title</p>
+                        </div>
+                        <div class="embedDescription">
+                            <p id="embedDescriptionText">Embed Description</p>
+                        </div>
+                        <img class="rounded" id="embedImage" src="https://glitchii.github.io/embedbuilder/assets/media/banner.png">
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
