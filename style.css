@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+
+body {
+    background-color: #2C3032;
+    font-family: "Inconsolata", monospace;
+}
+
 .fields {
     display:flex;
     flex-direction: column;
@@ -8,6 +15,10 @@
     justify-content:space-between;
 }
 
+.right-container {
+    min-width: 50dvw;
+}
+
 .horizontal {
     display:flex;
     flex-direction: row;
@@ -16,15 +27,59 @@
 .embed-message {
     display:flex;
     flex-direction: row;
-    background-color: gray;
+    background-color: 26292B;
+    max-width: 400px;
+    min-width: 400px;
+    min-height: 50px;
+}
+
+.normal {
+    color: #ffffff;
+}
+
+.text-box {
+    background-color: #292D2E;
+    min-width: 30dvw;
+    border: none;
+    min-height:30px;
+}
+
+.big-text-box {
+    min-height: 150px;
+}
+
+input{
+    vertical-align:top;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #ffffff;
+}
+
+.color-left {
+    min-width: 5px;
+    width:5px;
+    flex-shrink: 0;
+    border-radius:4px 0 0 4px;
+    background-color:#5865F2;
 }
 
 .embed-message-content {
     margin: 10px;
 }
 
+.webhookImage {
+    height:32px;
+    width:32px;
+    border-radius:50%;
+}
+
 .rounded {
     border-radius:5px;
+}
+
+.center-horizontal {
+    align-items:center;
 }
 
 .embedAuthorImg {
@@ -33,12 +88,10 @@
     border-radius:50%;
 }
 
-.color-left {
-    height: auto;
-    width:5px;
-    background-color: blue;
-}
-
 .bold {
     font-weight: bold;
+}
+
+.disabled {
+    display: none;
 }

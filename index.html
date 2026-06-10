@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
     <div class="container">
@@ -12,27 +13,30 @@
             <section class="left-container">
                 <div class="message-content fields">
                     <div class="webhook-link-div">
-                        <label for="webhook-link">Webhook Link</label>
+                        <label for="webhook-link" class="normal">Webhook Link</label>
                     </div>
                     <div>
                         <input type="text" class="text-box" id="webhook-link" placeholder="https://discord.com/api/webhooks/...">
                         <button id="submit-button" type="submit">Submit</button>
                     </div>
-                    <label for="message-content">Message Content</label>
-                    <input type="text" class="text-box" id="message-content" placeholder="Message content">
+                    <label for="message-content" class="normal">Message Content</label>
+                    <textarea class="text-box big-text-box" id="message-content" placeholder="Message content">
                 </div>
 
-                <div class="embed fields">
-                    <label for="embed-title">Embed Title</label>
+                <label for="embed-checkbox" class="normal">Embed</label>
+                <input type="checkbox" id="embed-checkbox" class="checkbox">
+                
+                <div id="embed-fields" class="embed-fields disabled fields">
+                    <label for="embed-title" class="normal">Embed Title</label>
                     <input id="embed-title" type="text" class="text-box" placeholder="Title">
 
-                    <label for="embed-description">Embed Description</label>
+                    <label for="embed-description" class="normal">Embed Description</label>
                     <input id="embed-description" type="text" class="text-box" placeholder="Description">
 
-                    <label for="embed-color">Embed Color</label>
+                    <label for="embed-color" class="normal">Embed Color</label>
                     <input id="embed-color" type="text" class="text-box" placeholder="HEX color code" value="#5865F2">
 
-                    <label for="embed-image">Embed Image</label>
+                    <label for="embed-image" class="normal">Embed Image</label>
                     <input type="text" class="text-box" id="embed-image" pattern="https?://.+" title="Include http://">
                 </div>
                 <div id="status-div"></div>
@@ -40,22 +44,27 @@
         </form>
         <section class="right-container">
             <div class="message">
-                <div class="embed-message rounded">
-                    <div class="color-left rounded"></div>
+                <div class="discord-message">
+                    <div class="webhook-name-div center-horizontal horizontal">
+                        <a id="webhookLink" href="https://discord.com/"><img class="webhookImage" src="https://cdn.discordapp.com/embed/avatars/0.png"></a>
+                        <p id="webhookName" class="normal bold">Webhook Name</p>
+                    </div>
+                </div>
+                <div id="embed-message" class="embed-message disabled rounded">
+                    <div id="embed-color-left" class="color-left"></div>
                     <div class="embed-message-content">
-                        <div class="embedAuthor horizontal bold">
-                            <a href="https://discord.com/"> <img class="embedAuthorImg" src="https://cdn.discordapp.com/embed/avatars/0.png"></a>
-                            <p id="embedAuthorName">Embed Author</p>
+                        <div class="embedAuthor horizontal bold center-horizontal">
+                            <a id="embedAuthorLink" ref="https://discord.com/"> <img class="embedAuthorImg" src="https://cdn.discordapp.com/embed/avatars/0.png"></a>
+                            <p id="embedAuthorName" class="normal">Embed Author</p>
                         </div>
                         <div class="embedTitle">
-                            <p id="embedTitleText bold">Embed Title</p>
+                            <p id="embedTitleText" class="normal bold">Embed Title</p>
                         </div>
                         <div class="embedDescription">
-                            <p id="embedDescriptionText">Embed Description</p>
+                            <p id="embedDescriptionText" class="normal">Embed Description</p>
                         </div>
                         <img class="rounded" id="embedImage" src="https://glitchii.github.io/embedbuilder/assets/media/banner.png">
                     </div>
-                    
                 </div>
             </div>
         </section>

@@ -1,3 +1,6 @@
+var embedColor = document.getElementById("embed-color").value;
+document.getElementById("embed-color-left").style.backgroundColor = embedColor;
+
 document.getElementById("webhook-form").addEventListener("submit", async function (event) {
     var webhookLink = document.getElementById("webhook-link").value;
     var messageContent = document.getElementById("message-content").value;
@@ -64,8 +67,33 @@ document.getElementById("webhook-form").addEventListener("input", function (even
     var embedColor = document.getElementById("embed-color").value;
     var embedImage = document.getElementById("embed-image").value;
 
+    var embedColorBarLeft = document.getElementById("embed-color-left")
+
+    if (/^#[0-9A-Fa-f]{6}$/.test(embedColor)) {
+        embedColorBarLeft.style.backgroundColor = embedColor;
+    }
+    
+
+
     document.getElementById("embedDescriptionText").innerText = embedDescription;
     document.getElementById("embedTitleText").innerText = embedTitle;
+
+    
+});
+
+document.getElementById("embed-checkbox").addEventListener("input", function (event){
+    var embedCheckbox = document.getElementById("embed-checkbox");
+    var embedFields = document.getElementById("embed-fields");
+    var embedMessage = document.getElementById("embed-message");
+
+    if(embedCheckbox.checked){
+        embedFields.classList.remove("disabled")
+        embedMessage.classList.remove("disabled")
+    }
+    else{
+        embedFields.classList.add("disabled")
+        embedMessage.classList.add("disabled")
+    }
 });
     
 
