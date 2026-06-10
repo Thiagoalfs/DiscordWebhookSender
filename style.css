@@ -1,8 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/gg-sans-2');
 
 body {
-    background-color: #2C3032;
-    font-family: "Inconsolata", monospace;
+    background-color: #36393F;
+    font-family: 'gg sans normal', sans-serif;
+}
+
+#webhookContent, #embedDescriptionText, #embedTitleText {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    max-width: 100%;
 }
 
 label{
@@ -12,6 +19,29 @@ label{
 .fields {
     display:flex;
     flex-direction: column;
+}
+
+.message{
+    margin-top:-15px;
+    margin-left:15px;
+}
+
+.message-container{
+    margin-left: 50px;
+    padding-left: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+button {
+    border: none;
+    color: #ffffff;
+    background-color: #292D2E;
+    padding: 8px;
+}
+
+.message-container:hover{
+    background-color: #32353B;
 }
 
 .container {
@@ -30,11 +60,13 @@ label{
 
 .embed-message {
     display:flex;
+    background-color: #2F3136;
     flex-direction: row;
     background-color: 26292B;
     max-width: 400px;
     min-width: 400px;
     min-height: 50px;
+    overflow: hidden;
 }
 
 .normal {
@@ -43,9 +75,22 @@ label{
 
 .text-box {
     background-color: #292D2E;
-    min-width: 30dvw;
+    max-width: 50dvw;
+    min-width: 50dvw;
     border: none;
-    min-height:30px;
+    min-height: 30px;
+}
+
+.webhook-link-with-button {
+    max-width: 50dvw;
+    min-width: 50dvw;
+    gap: 5px;
+    display: flex;
+}
+
+.webhook-link-with-button .text-box {
+    min-width: 0;
+    flex: 1;
 }
 
 textarea {
@@ -71,12 +116,18 @@ input::placeholder, textarea::placeholder {
 
 .embed-message-content {
     margin: 10px;
+    overflow: hidden;
+    min-width: 0;
 }
 
 .webhookImage {
-    height:32px;
-    width:32px;
+    height:48px;
+    width:48px;
     border-radius:50%;
+}
+
+.embedAuthor {
+    gap: 10px;
 }
 
 .rounded {
@@ -94,7 +145,7 @@ input::placeholder, textarea::placeholder {
 }
 
 .bold {
-    font-weight: bold;
+    font-family: "gg sans", sans-serif;
 }
 
 .markdown {
@@ -106,6 +157,46 @@ input::placeholder, textarea::placeholder {
     text-decoration: underline;
 }
 
+.markdown h1, .markdown p, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6, .markdown ul, .markdown ol, .markdown blockquote {
+    margin: 0;
+}
+
 .disabled {
     display: none;
+}
+
+.embed-message-content p {
+    margin-top: 0px;
+}
+
+.embed-message-content #embedImage {
+    margin-top: 10px;
+}
+
+.margin-bottom {
+    margin-bottom: 10px;
+}
+
+#embedAuthorName {
+    margin-top: 10px;
+}
+
+#webhookContent {
+    margin-top: -10px;
+}
+
+@media (max-width: 800px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .text-box {
+        max-width: 98dvw;
+        min-width: 98dvw;
+    }
+
+    .webhook-link-with-button {
+        max-width: 99dvw;
+        min-width: 99dvw;
+    }
 }
