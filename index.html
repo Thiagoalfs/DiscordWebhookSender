@@ -5,29 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <form id="webhook-form" onKeyPress="refresh()">
             <section class="left-container">
-                <div class="webhook-settings" id="webhookSettings">
-                    <div class="webhook-link-div">
-                        <label for="webhook-link" class="normal">Webhook Link</label>
+                <div class="webhook-settings section" id="webhookSettings">
+                    <div class="subtitle">
+                        Webhook Settings
+                        <i class="fa-solid fa-angle-down section-arrow"></i>
                     </div>
-                    <div class="webhook-link-with-button horizontal">
-                        <input type="text" class="text-box" id="webhook-link" placeholder="https://discord.com/api/webhooks/...">
-                        <button id="submit-button" type="submit">Submit</button>
+                    <div id="webhook-settings-fields" class="webhook-settings-fields center-horizontal">
+                        <div class="webhook-link-div">
+                            <label for="webhook-link" class="normal">Webhook Link</label>
+                        </div>
+                        <div class="webhook-link-with-button horizontal">
+                            <input type="text" class="text-box" id="webhook-link" placeholder="https://discord.com/api/webhooks/...">
+                            <button id="submit-button" type="submit">Submit</button>
+                        </div>
+                        <label for="webhook-name" class="fields">Webhook Name</label>
+                        <input type="text" class="text-box" id="webhook-name" placeholder="Webhook Name">
+
+                        <label for="webhook-avatar" class="fields">Webhook Avatar</label>
+                        <input type="text" class="text-box" id="webhook-avatar" pattern="https?://.+">
+
+                        <div class="message-content fields">
+                            <label for="message-content">Message Content</label>
+                            <textarea class="text-box" rows="3" id="message-content" placeholder="Message content"></textarea>
+                        </div>
                     </div>
-                    <label for="webhook-name" class="normal">Webhook Name</label>
-                    <input type="text" class="text-box" id="webhook-name" placeholder="Webhook Name">
-
-                    <label for="webhook-avatar" class="normal">Webhook Avatar</label>
-                    <input type="text" class="text-box" id="webhook-avatar" pattern="https?://.+">
-                </div>
-
-                <div class="message-content fields">
-                    <label for="message-content" class="normal">Message Content</label>
-                    <textarea class="text-box" rows="3" id="message-content" placeholder="Message content"></textarea>
                 </div>
 
                 <label for="embed-checkbox" class="normal">Embed</label>
@@ -91,5 +98,6 @@
     <script src="script.js"></script>
     <script src="webhookPOST.js"></script>
     <script src="webhookGET.js"></script>
+    <script src="sections.js"></script>
 </body>
 </html>

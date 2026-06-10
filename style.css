@@ -3,6 +3,7 @@
 body {
     background-color: #36393F;
     font-family: 'gg sans normal', sans-serif;
+    color: #ffffff;
 }
 
 #webhookContent, #embedDescriptionText, #embedTitleText {
@@ -185,18 +186,45 @@ input::placeholder, textarea::placeholder {
     margin-top: -10px;
 }
 
+.subtitle {
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid white;
+    padding: 10px;
+    border-radius:5px;
+}
+
+.section {
+    border-width: 1px;
+    border-style: solid;
+    border-color: white;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.section:hover {
+    cursor: pointer;
+}
+
+.webhook-settings-fields {
+    padding: 10px;
+}
+
 @media (max-width: 800px) {
     .container {
-        flex-direction: column;
+        flex-direction: column-reverse;
+
     }
 
     .text-box {
-        max-width: 98dvw;
-        min-width: 98dvw;
+        max-width: 90dvw;
+        min-width: 90dvw;
     }
 
     .webhook-link-with-button {
-        max-width: 99dvw;
-        min-width: 99dvw;
+        max-width: 90dvw;
+        min-width: 90dvw;
     }
 }
+
