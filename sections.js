@@ -1,14 +1,15 @@
 document.querySelectorAll(".section").forEach(section => {
-    section.addEventListener("click", function(event){
-        const sectionDiv = section.querySelector("#webhook-settings-fields");
+    const sectionDiv = section.querySelector(".dropdown-section");
+    sectionDiv.addEventListener("click", function(event){
         const sectionArrow = section.querySelector(".section-arrow");
+        const sectionFields = section.querySelector(".fields");
         
-        if (sectionDiv.classList.contains("disabled")) {
-            sectionDiv.classList.remove("disabled")
+        if (sectionFields.classList.contains("disabled")) {
+            sectionFields.classList.remove("disabled")
             sectionArrow.classList.replace("fa-angle-down", "fa-angle-up");
         }
         else{
-            sectionDiv.classList.add("disabled")
+            sectionFields.classList.add("disabled")
             sectionArrow.classList.replace("fa-angle-up", "fa-angle-down");
         }
     });

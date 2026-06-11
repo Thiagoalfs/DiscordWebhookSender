@@ -1,230 +1,79 @@
+:root {
+    --leftcontainerbg: #2f3136;
+    --fieldsbg: #212226;
+}
+
 @import url('https://fonts.cdnfonts.com/css/gg-sans-2');
 
 body {
-    background-color: #36393F;
-    font-family: 'gg sans normal', sans-serif;
-    color: #ffffff;
+    font-family: 'gg sans Normal', sans-serif;
+    color: #ffffff
 }
 
-#webhookContent, #embedDescriptionText, #embedTitleText {
-    word-break: break-word;
-    overflow-wrap: break-word;
-    white-space: pre-wrap;
-    max-width: 100%;
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 100vh;
 }
 
-label{
-    margin-top: 10px;
+.section {
+    width: 100%;
 }
 
 .fields {
     display:flex;
     flex-direction: column;
+    justify-content: center;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
-.message{
-    margin-top:-15px;
-    margin-left:15px;
+.dropdown-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 5px;
 }
 
-.message-container{
-    margin-left: 50px;
-    padding-left: 50px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-button {
-    border: none;
-    color: #ffffff;
-    background-color: #292D2E;
-    padding: 8px;
-}
-
-.message-container:hover{
-    background-color: #32353B;
-}
-
-.container {
-    display:flex;
-    justify-content:space-between;
+.left-container {
+    background-color: var(--leftcontainerbg);
+    width: 50%;
 }
 
 .right-container {
-    min-width: 50dvw;
-}
-
-.horizontal {
-    display:flex;
-    flex-direction: row;
-}
-
-.embed-message {
-    display:flex;
-    background-color: #2F3136;
-    flex-direction: row;
-    background-color: 26292B;
-    max-width: 400px;
-    min-width: 400px;
-    min-height: 50px;
-    overflow: hidden;
-}
-
-.normal {
-    color: #ffffff;
-}
-
-.text-box {
-    background-color: #292D2E;
-    max-width: 50dvw;
-    min-width: 50dvw;
-    border: none;
-    min-height: 30px;
-}
-
-.webhook-link-with-button {
-    max-width: 50dvw;
-    min-width: 50dvw;
-    gap: 5px;
-    display: flex;
-}
-
-.webhook-link-with-button .text-box {
-    min-width: 0;
-    flex: 1;
-}
-
-textarea {
-    resize:none;
-}
-
-input, textarea{
-    vertical-align:top;
-    color: #ffffff;
-}
-
-input::placeholder, textarea::placeholder {
-    color: #ffffff50;
-}
-
-.color-left {
-    min-width: 5px;
-    width:5px;
-    flex-shrink: 0;
-    border-radius:4px 0 0 4px;
-    background-color:#5865F2;
-}
-
-.embed-message-content {
-    margin: 10px;
-    overflow: hidden;
-    min-width: 0;
-}
-
-.webhookImage {
-    height:48px;
-    width:48px;
-    border-radius:50%;
-}
-
-.embedAuthor {
-    gap: 10px;
-}
-
-.rounded {
-    border-radius:5px;
-}
-
-.center-horizontal {
-    align-items:center;
-}
-
-.embedAuthorImg {
-    height:24px;
-    width:24px;
-    border-radius:50%;
+    width: 50%;
+    justify-content: flex-start;
 }
 
 .bold {
-    font-family: "gg sans", sans-serif;
-}
-
-.markdown {
-    white-space: pre-wrap;
-}
-
-.markdown a {
-    color: #58a6ff;
-    text-decoration: underline;
-}
-
-.markdown h1, .markdown p, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6, .markdown ul, .markdown ol, .markdown blockquote {
-    margin: 0;
+    font-family: 'gg sans', sans-serif;
 }
 
 .disabled {
     display: none;
 }
 
-.embed-message-content p {
-    margin-top: 0px;
+input[type="text"] {
+    border: none;
+    width:100%;
+    background-color: var(--fieldsbg)
 }
 
-.embed-message-content #embedImage {
-    margin-top: 10px;
+input::placeholder {
+    color: #ffffff6b
 }
 
-.margin-bottom {
-    margin-bottom: 10px;
-}
-
-#embedAuthorName {
-    margin-top: 10px;
-}
-
-#webhookContent {
-    margin-top: -10px;
-}
-
-.subtitle {
-    font-weight: bold;
+.input-row {
     display: flex;
-    justify-content: space-between;
-    border: 2px solid white;
-    padding: 10px;
-    border-radius:5px;
+    gap: 10px; /* Espaço entre o campo e o botão */
+    width: 100%;
+    align-items: center;
 }
 
-.section {
-    border-width: 1px;
-    border-style: solid;
-    border-color: white;
-    margin: 10px;
-    border-radius: 5px;
+.input-row input {
+    flex: 1; /* Faz o input crescer para ocupar o espaço disponível */
 }
-
-.section:hover {
-    cursor: pointer;
-}
-
-.webhook-settings-fields {
-    padding: 10px;
-}
-
-@media (max-width: 800px) {
-    .container {
-        flex-direction: column-reverse;
-
-    }
-
-    .text-box {
-        max-width: 90dvw;
-        min-width: 90dvw;
-    }
-
-    .webhook-link-with-button {
-        max-width: 90dvw;
-        min-width: 90dvw;
-    }
-}
-

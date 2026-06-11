@@ -55,18 +55,4 @@ document.getElementById("webhook-form").addEventListener("input", function (even
 
 });
 
-document.getElementById("embed-checkbox").addEventListener("input", function (event){
-    var embedCheckbox = document.getElementById("embed-checkbox");
-    var embedFields = document.getElementById("embed-fields");
-    var embedMessage = document.getElementById("embed-message");
-
-    if(embedCheckbox.checked){
-        embedFields.classList.remove("disabled")
-        embedMessage.classList.remove("disabled")
-    }
-    else{
-        embedFields.classList.add("disabled")
-        embedMessage.classList.add("disabled")
-    }
-});
     

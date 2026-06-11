@@ -9,62 +9,61 @@
 </head>
 <body>
     <div class="container">
-        <form id="webhook-form" onKeyPress="refresh()">
-            <section class="left-container">
-                <div class="webhook-settings section" id="webhookSettings">
-                    <div class="subtitle">
-                        Webhook Settings
-                        <i class="fa-solid fa-angle-down section-arrow"></i>
+        <section class="left-container">
+            <form id="webhook-form">
+                <div class="section" id="webhook-settings">
+                    <div class="dropdown-section">
+                        Webhook Settings <i class="fa-solid fa-angle-down section-arrow"></i>
                     </div>
-                    <div id="webhook-settings-fields" class="webhook-settings-fields center-horizontal">
-                        <div class="webhook-link-div">
-                            <label for="webhook-link" class="normal">Webhook Link</label>
+                    <div id="webhook-settings-fields" class="fields">
+                            <label for="webhook-link">Webhook Link</label>
+                        <div class="input-row">
+                            <input type="text" id="webhook-link" placeholder="https://discord.com/api/webhooks/...">
+                            <button id="submit-button" type="submit">Enviar</button>
                         </div>
-                        <div class="webhook-link-with-button horizontal">
-                            <input type="text" class="text-box" id="webhook-link" placeholder="https://discord.com/api/webhooks/...">
-                            <button id="submit-button" type="submit">Submit</button>
-                        </div>
-                        <label for="webhook-name" class="fields">Webhook Name</label>
-                        <input type="text" class="text-box" id="webhook-name" placeholder="Webhook Name">
+                        <label for="webhook-name">Webhook Name</label>
+                        <input type="text" id="webhook-name" placeholder="Webhook Name">
 
-                        <label for="webhook-avatar" class="fields">Webhook Avatar</label>
-                        <input type="text" class="text-box" id="webhook-avatar" pattern="https?://.+">
+                        <label for="webhook-avatar">Webhook Avatar</label>
+                        <input type="text" id="webhook-avatar" pattern="https?://.+">
 
-                        <div class="message-content fields">
-                            <label for="message-content">Message Content</label>
-                            <textarea class="text-box" rows="3" id="message-content" placeholder="Message content"></textarea>
-                        </div>
+                        <label for="message-content">Message Content</label>
+                        <textarea rows="3" id="message-content" placeholder="Message content"></textarea>
                     </div>
                 </div>
-
-                <label for="embed-checkbox" class="normal">Embed</label>
-                <input type="checkbox" id="embed-checkbox" class="checkbox">
                 
-                <div id="embed-fields" class="embed-fields disabled fields">
-                    <label for="embed-title" class="normal">Embed Title</label>
-                    <input id="embed-title" type="text" class="text-box" placeholder="Title">
+                <div class="section" id="embed-settings">
+                    <div class="dropdown-section">
+                        Embed Settings <i class="fa-solid fa-angle-down section-arrow"></i>
+                    </div>
+                    <div id="embed-fields" class="disabled fields">
+                        <label for="embed-title">Embed Title</label>
+                        <input id="embed-title" type="text" placeholder="Title">
 
-                    <label for="embed-description" class="normal">Embed Description</label>
-                    <textarea id="embed-description" rows="3" class="text-box" placeholder="Description"></textarea>
+                        <label for="embed-description">Embed Description</label>
+                        <textarea id="embed-description" rows="3" placeholder="Description"></textarea>
 
-                    <label for="embed-color" class="normal">Embed Color</label>
-                    <input id="embed-color" type="text" class="text-box" placeholder="HEX color code" value="#5865F2">
+                        <label for="embed-color">Embed Color</label>
+                        <input id="embed-color" type="text" placeholder="HEX color code" value="#5865F2">
 
-                    <label for="embed-image" class="normal">Embed Image</label>
-                    <input type="text" class="text-box" id="embed-image" pattern="https?://.+" title="Include http://">
+                        <label for="embed-image">Embed Image</label>
+                        <input type="text" id="embed-image" pattern="https?://.+" title="Include http://">
+                    </div>
                 </div>
                 <div id="status-div"></div>
-            </section>
-        </form>
+            </form>
+        </section>
+
+
         <section class="right-container">
-            <div class="message-container horizontal">
+            <div class="message-container">
                 <div id="webhookImage">
                     <a id="webhookLink" href="https://discord.com/"><img id="webhookImage"class="webhookImage" src="https://cdn.discordapp.com/embed/avatars/0.png"></a>
                 </div>
 
                 <div class="message">
-                    <div class="discord-message horizontal">
-                            <div class="discord-message-content margin-bottom">
+                    <div class="discord-message">
+                            <div class="discord-message-content">
                                 <div class="webhook-name-div horizontal">
                                     <p id="webhookName" class="normal bold">Webhook Name</p>
                                 </div>
