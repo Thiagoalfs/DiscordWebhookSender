@@ -211,7 +211,9 @@ button:hover {
 }
 
 .image-upload-icon, 
-.webhook-avatar-upload-icon {
+.webhook-avatar-upload-icon,
+.author-icon-upload-icon,
+.footer-icon-upload-icon {
     position: absolute;
     right: 15px;
     cursor: pointer;
@@ -220,7 +222,9 @@ button:hover {
 }
 
 .image-upload-icon:hover, 
-.webhook-avatar-upload-icon:hover {
+.webhook-avatar-upload-icon:hover,
+.author-icon-upload-icon:hover,
+.footer-icon-upload-icon:hover {
     color: #ffffff;
 }
 

@@ -27,7 +27,7 @@
 
                         <label for="webhook-avatar">Webhook Avatar</label>
                         <div class="image-input-wrapper">
-                            <input type="text" id="webhook-avatar" pattern="https?://.+">
+                            <input type="text" id="webhook-avatar" pattern="https?://.+" placeholder="https://">
                             <i class="fa-solid fa-upload webhook-avatar-upload-icon"></i>
                             <input type="file" id="webhook-avatar-file-input" accept="image/*">
                         </div>
@@ -57,7 +57,7 @@
 
                         <label for="embed-image">Embed Image</label>
                         <div class="image-input-wrapper">
-                            <input type="text" id="embed-image" pattern="https?://.+" title="Include http://">
+                            <input type="text" id="embed-image" pattern="https?://.+" placeholder="https://" title="Include http://">
                             <i class="fa-solid fa-upload image-upload-icon"></i>
                             <input type="file" id="image-file-input" accept="image/*">
                         </div>
@@ -69,7 +69,11 @@
                                 <label for="author-name">Author Name</label>
                                 <input type="text" id="author-name" placeholder="Author Name">
                                 <label for="author-icon">Author Icon</label>
-                                <input type="text" id="author-icon" pattern="https?://.+" title="Include http://">
+                                <div class="image-input-wrapper">
+                                    <input type="text" id="author-icon" pattern="https?://.+" title="Include http://" placeholder="https://">
+                                    <i class="fa-solid fa-upload author-icon-upload-icon"></i>
+                                    <input type="file" id="author-icon-file-input" accept="image/*">
+                                </div>
                             </div>
                         </div>
 
@@ -81,7 +85,11 @@
                                 <label for="footer-text">Footer Text</label>
                                 <input type="text" id="footer-text" placeholder="Footer Text">
                                 <label for="footer-icon">Footer Icon</label>
-                                <input type="text" id="footer-icon" pattern="https?://.+" title="Include http://">
+                                <div class="image-input-wrapper">
+                                    <input type="text" id="footer-icon" pattern="https?://.+" title="Include http://" placeholder="https://">
+                                    <i class="fa-solid fa-upload footer-icon-upload-icon"></i>
+                                    <input type="file" id="footer-icon-file-input" accept="image/*">
+                                </div>
                                 <div class="input-row" style="margin-top: 5px;">
                                     <label for="embed-timestamp" style="margin: 0; cursor: pointer;">Add Timestamp</label>
                                     <input type="checkbox" id="embed-timestamp">
