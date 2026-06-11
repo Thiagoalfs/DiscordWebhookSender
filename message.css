@@ -1,17 +1,3 @@
-body {
-    margin: 0;
-}
-
-.container {
-    display: flex;
-    height: 100vh; /* Força o container a ocupar exatamente a altura da tela */
-    overflow: hidden; /* Impede que a página inteira role */
-}
-
-.left-container, .right-container {
-    height: 100%; /* Ocupa toda a altura do pai (.container) */
-    overflow-y: auto; /* Habilita a barra de rolagem vertical apenas quando necessário */
-}
 
 #message-container{
     display:flex;

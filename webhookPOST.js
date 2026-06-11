@@ -5,7 +5,6 @@ document.getElementById("webhook-form").addEventListener("submit", async functio
     var messageContent = document.getElementById("message-content").value;
     var webhookNameInput = document.getElementById("webhook-name").value;
     var webhookAvatarInput = document.getElementById("webhook-avatar").value; // Corrigido: era #webhookImage (uma <img>), não tem .value
-    var statusDiv = document.getElementById("status-div");
     var embedTitle = document.getElementById("embed-title").value;
     var embedDescription = document.getElementById("embed-description").value;
     var embedColor = document.getElementById("embed-color").value;
@@ -39,8 +38,6 @@ document.getElementById("webhook-form").addEventListener("submit", async functio
         payload.embeds = [embed];
     }
 
-    statusDiv.innerText = "Sending message...";
-
     try {
         submitButton.innerHTML = "Enviando...";
         const response = await fetch(webhookLink, {
@@ -61,7 +58,6 @@ document.getElementById("webhook-form").addEventListener("submit", async functio
             submitButton.innerHTML = "Enviar";
         }, 1000);
     } catch (error) {
-        statusDiv.innerText = "Error: " + error.message;
         console.error("Error sending message:", error);
     }
 });
