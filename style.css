@@ -174,10 +174,11 @@ button:hover {
     position: relative;
     display: flex;
     align-items: center;
+    width: 100%;
 }
 
 .color-input-wrapper input[type="text"] {
-    width: 99% !important;
+    width: 100% !important;
     padding-right: 40px !important
 }
 
@@ -201,30 +202,15 @@ button:hover {
     position: relative;
     display: flex;
     align-items: center;
-    width: 100%; /* Match other inputs */
+    width: 100%;
 }
 
 .image-input-wrapper input[type="text"] {
     width: 100% !important;
-    padding-right: 40px !important; /* Space for the icon */
+    padding-right: 40px !important;
 }
 
-.image-upload-icon {
-    position: absolute;
-    right: 15px;
-    cursor: pointer;
-    color: #b5bac1;
-    transition: color 0.2s;
-}
-
-.image-upload-icon:hover {
-    color: #ffffff;
-}
-
- #image-file-input, #webhook-avatar-file-input {
-    display: none;
- }
-
+.image-upload-icon, 
 .webhook-avatar-upload-icon {
     position: absolute;
     right: 15px;
@@ -233,6 +219,11 @@ button:hover {
     transition: color 0.2s;
 }
 
+.image-upload-icon:hover, 
 .webhook-avatar-upload-icon:hover {
     color: #ffffff;
+}
+
+input[type="file"] {
+    display: none !important;
 }
