@@ -221,6 +221,18 @@ button:hover {
     color: #ffffff;
 }
 
-#image-file-input {
+ #image-file-input, #webhook-avatar-file-input {
     display: none;
+ }
+
+.webhook-avatar-upload-icon {
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+    color: #b5bac1;
+    transition: color 0.2s;
+}
+
+.webhook-avatar-upload-icon:hover {
+    color: #ffffff;
 }

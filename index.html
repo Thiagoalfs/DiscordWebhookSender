@@ -26,7 +26,11 @@
                         <input type="text" id="webhook-name" placeholder="Webhook Name">
 
                         <label for="webhook-avatar">Webhook Avatar</label>
-                        <input type="text" id="webhook-avatar" pattern="https?://.+">
+                        <div class="image-input-wrapper">
+                            <input type="text" id="webhook-avatar" pattern="https?://.+">
+                            <i class="fa-solid fa-upload webhook-avatar-upload-icon"></i>
+                            <input type="file" id="webhook-avatar-file-input" accept="image/*">
+                        </div>
 
                         <label for="message-content">Message Content</label>
                         <textarea rows="3" id="message-content" placeholder="Message content" maxlength="2000"></textarea>

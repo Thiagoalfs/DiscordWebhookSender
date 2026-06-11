@@ -1,58 +1,60 @@
 import { IMGBB_API_KEY } from './config.js';
 
-const imageFileInput = document.getElementById('image-file-input');
-const imageUploadIcon = document.querySelector('.image-upload-icon');
-const embedImageInput = document.getElementById('embed-image');
+function setupUploader(iconSelector, fileInputId, textInputId) {
+    const icon = document.querySelector(iconSelector);
+    const fileInput = document.getElementById(fileInputId);
+    const textInput = document.getElementById(textInputId);
 
-imageUploadIcon.addEventListener('click', () => {
-    imageFileInput.click();
-});
+    if (!icon || !fileInput || !textInput) return;
 
-imageFileInput.addEventListener('change', async (event) => {
-    const file = event.target.files[0];
-    if (!file) {
-        return;
-    }
+    icon.addEventListener('click', () => {
+        fileInput.click();
+    });
 
-    if (IMGBB_API_KEY === "YOUR_IMGBB_API_KEY" || !IMGBB_API_KEY) {
-        alert("Por favor, substitua 'YOUR_IMGBB_API_KEY' no arquivo imageUploader.js pela sua chave de API real do imgbb.");
-        return;
-    }
+    fileInput.addEventListener('change', async (event) => {
+        const file = event.target.files[0];
+        if (!file) return;
 
-    // Opcional: Mostrar um indicador de carregamento
-    imageUploadIcon.classList.remove('fa-upload');
-    imageUploadIcon.classList.add('fa-spinner', 'fa-spin');
-    embedImageInput.value = "Enviando imagem..."; // Feedback visual
-
-    const formData = new FormData();
-    formData.append('image', file);
-
-    try {
-        const response = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`, {
-            method: 'POST',
-            body: formData,
-        });
-
-        const data = await response.json();
-
-        if (data.success) {
-            const imageUrl = data.data.url;
-            embedImageInput.value = imageUrl;
-            // Dispara manualmente um evento de input para atualizar o preview em tempo real
-            embedImageInput.dispatchEvent(new Event('input', { bubbles: true }));
-        } else {
-            alert(`Falha no upload da imagem: ${data.error.message}`);
-            embedImageInput.value = ""; // Limpa o input em caso de falha
+        if (IMGBB_API_KEY === "YOUR_IMGBB_API_KEY" || !IMGBB_API_KEY) {
+            alert("Por favor, configure sua API Key no config.js");
+            return;
         }
-    } catch (error) {
-        console.error('Erro ao enviar imagem:', error);
-        alert('Ocorreu um erro durante o upload da imagem.');
-        embedImageInput.value = ""; // Limpa o input em caso de erro
-    } finally {
-        // Esconde o indicador de carregamento
-        imageUploadIcon.classList.remove('fa-spinner', 'fa-spin');
-        imageUploadIcon.classList.add('fa-upload');
-        // Limpa o input de arquivo para que o mesmo arquivo possa ser selecionado novamente, se necessário
-        imageFileInput.value = '';
+
+        // Feedback visual de carregamento
+        icon.classList.remove('fa-upload');
+        icon.classList.add('fa-spinner', 'fa-spin');
+        const originalPlaceholder = textInput.value;
+        textInput.value = "Enviando imagem...";
+
+        const formData = new FormData();
+        formData.append('image', file);
+
+        try {
+            const response = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`, {
+                method: 'POST',
+                body: formData,
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                textInput.value = data.data.url;
+                textInput.dispatchEvent(new Event('input', { bubbles: true }));
+            } else {
+                alert(`Falha no upload: ${data.error.message}`);
+                textInput.value = originalPlaceholder;
+            }
+        } catch (error) {
+            console.error('Erro ao enviar imagem:', error);
+            textInput.value = originalPlaceholder;
+        } finally {
+            icon.classList.remove('fa-spinner', 'fa-spin');
+            icon.classList.add('fa-upload');
+            fileInput.value = '';
+        }
+    });
     }
-});
+
+// Inicializa os uploaders
+setupUploader('.image-upload-icon', 'image-file-input', 'embed-image');
+setupUploader('.webhook-avatar-upload-icon', 'webhook-avatar-file-input', 'webhook-avatar');
