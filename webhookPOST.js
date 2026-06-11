@@ -1,45 +1,48 @@
 document.getElementById("webhook-form").addEventListener("submit", async function (event) {
+    event.preventDefault();
+
     var webhookLink = document.getElementById("webhook-link").value;
     var messageContent = document.getElementById("message-content").value;
     var webhookNameInput = document.getElementById("webhook-name").value;
-    var webhookAvatarInput = document.getElementById("webhook-avatar").value; 
+    var webhookAvatarInput = document.getElementById("webhook-avatar").value; // Corrigido: era #webhookImage (uma <img>), não tem .value
     var statusDiv = document.getElementById("status-div");
     var embedTitle = document.getElementById("embed-title").value;
     var embedDescription = document.getElementById("embed-description").value;
     var embedColor = document.getElementById("embed-color").value;
     var embedImage = document.getElementById("embed-image").value;
-    event.preventDefault();
+    var submitButton = document.getElementById("submit-button");
 
     var payload = {};
 
     if (messageContent) {
         payload.content = messageContent;
     }
-
     if (webhookNameInput) {
         payload.username = webhookNameInput;
     }
-    if (webhookAvatarInput && webhookAvatarInput.startsWith("http")) { 
+    if (webhookAvatarInput && webhookAvatarInput.startsWith("http")) {
         payload.avatar_url = webhookAvatarInput;
     }
+    if (embedTitle || embedDescription || embedImage) {
+        const decimalColor = parseInt(embedColor.replace("#", ""), 16);
 
-    if (embedTitle || embedDescription) {
-        const decimalColor = parseInt(embedColor.substring(1), 16);
-    
         const embed = {
             title: embedTitle || undefined,
             description: embedDescription || undefined,
             color: isNaN(decimalColor) ? undefined : decimalColor,
-            image: {
-                url: embedImage || undefined
-            },
         };
+
+        if (embedImage) {
+            embed.image = { url: embedImage };
+        }
+
         payload.embeds = [embed];
     }
 
     statusDiv.innerText = "Sending message...";
 
-    try{
+    try {
+        submitButton.innerHTML = "Enviando...";
         const response = await fetch(webhookLink, {
             method: "POST",
             headers: {
@@ -48,15 +51,16 @@ document.getElementById("webhook-form").addEventListener("submit", async functio
             body: JSON.stringify(payload)
         });
 
-        if(response.ok || response.status === 204){
-            statusDiv.innerText = "Message sent successfully!";
+        if (response.ok || response.status === 204) {
+            submitButton.innerHTML = "Enviado!";
+        } else {
+            submitButton.innerHTML = `Erro: ${response.status}`;
         }
 
-        else {
-            statusDiv.innerText = `Erro ao enviar: Status ${response.status}`;
-        }
-    }
-    catch(error){
+        setTimeout(() => {
+            submitButton.innerHTML = "Enviar";
+        }, 1000);
+    } catch (error) {
         statusDiv.innerText = "Error: " + error.message;
         console.error("Error sending message:", error);
     }

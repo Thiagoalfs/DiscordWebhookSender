@@ -1,7 +1,7 @@
 document.getElementById("webhook-link").addEventListener("input", function (event){
     var webhookLink = document.getElementById("webhook-link").value;
     var webhookNameElement = document.getElementById("webhookName");
-    var webhookImageElement = document.querySelector("#webhookImage img");
+    var webhookImageElement = document.querySelector("#webhookImage");
 
     if (webhookLink && webhookLink.startsWith("https://discord.com/api/webhooks/")) {
         fetchWebhookInfo(webhookLink, webhookNameElement, webhookImageElement);

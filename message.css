@@ -1,0 +1,141 @@
+body {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    height: 100vh; /* Força o container a ocupar exatamente a altura da tela */
+    overflow: hidden; /* Impede que a página inteira role */
+}
+
+.left-container, .right-container {
+    height: 100%; /* Ocupa toda a altura do pai (.container) */
+    overflow-y: auto; /* Habilita a barra de rolagem vertical apenas quando necessário */
+}
+
+#message-container{
+    display:flex;
+    flex-direction: column;
+}
+
+#webhook-preview-user{
+    display:flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #5865F2;
+    margin-bottom: 30px;
+    margin-top: 2px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.webhook-app {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
+#webhookName {
+    margin-top: 5px;
+}
+
+.message {
+    margin-top: -20px;
+    margin-left: 68px;
+}
+
+#webhookImage{
+    width: 48px;
+    height: auto;
+    border-radius: 50%;
+}
+
+#webhookContent {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+p, a, h1, h2, h3, h4, h5, h6, ul, ol, li, blockquote {
+    margin: 0;
+}
+
+.embed-message {
+    background-color: #2b2d31;
+    padding: 12px 16px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 8px;
+    width: fit-content;
+    max-width: 520px;
+    min-width: 150px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    word-wrap: break-word;
+}
+
+.embed-author {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+#message-container {
+    padding:20px;
+    padding-left: 40px;
+}
+
+#message-container:hover {
+    background-color: #292D2E;
+}
+
+.embedAuthorImg {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.color-left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    border-radius: 4px 0 0 4px;
+}
+
+#embedTitleText {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+#embedDescriptionText {
+    font-size: 0.875rem;
+    color: #dbdee1;
+    overflow-wrap: break-word;
+}
+
+#embedImage {
+    margin-top: 16px;
+    border-radius: 4px;
+    max-width: 100%;
+    max-height: 380px;
+}
+
+.disabled {
+    display: none !important;
+}

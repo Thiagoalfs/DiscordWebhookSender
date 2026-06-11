@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="message.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
@@ -28,7 +29,7 @@
                         <input type="text" id="webhook-avatar" pattern="https?://.+">
 
                         <label for="message-content">Message Content</label>
-                        <textarea rows="3" id="message-content" placeholder="Message content"></textarea>
+                        <textarea rows="3" id="message-content" placeholder="Message content" maxlength="2000"></textarea>
                     </div>
                 </div>
                 
@@ -38,10 +39,10 @@
                     </div>
                     <div id="embed-fields" class="disabled fields">
                         <label for="embed-title">Embed Title</label>
-                        <input id="embed-title" type="text" placeholder="Title">
+                        <input id="embed-title" type="text" placeholder="Title" maxlength="256">
 
                         <label for="embed-description">Embed Description</label>
-                        <textarea id="embed-description" rows="3" placeholder="Description"></textarea>
+                        <textarea id="embed-description" rows="3" placeholder="Description" maxlength="4096"></textarea>
 
                         <label for="embed-color">Embed Color</label>
                         <input id="embed-color" type="text" placeholder="HEX color code" value="#5865F2">
@@ -50,42 +51,42 @@
                         <input type="text" id="embed-image" pattern="https?://.+" title="Include http://">
                     </div>
                 </div>
-                <div id="status-div"></div>
             </form>
         </section>
 
 
         <section class="right-container">
-            <div class="message-container">
-                <div id="webhookImage">
-                    <a id="webhookLink" href="https://discord.com/"><img id="webhookImage"class="webhookImage" src="https://cdn.discordapp.com/embed/avatars/0.png"></a>
+            <div id="message-container">
+                <div id="webhook-preview-user">
+                    <a id="webhookLink" href="https://discord.com/"><img id="webhookImage" class="pfp" src="https://cdn.discordapp.com/embed/avatars/0.png"></a>
+                    <div class="webhook-app">
+                        <p id="webhookName" class="bold">Webhook Name</p>
+                        <p id="app" class="bold">APP</p>
+                    </div>
                 </div>
 
                 <div class="message">
                     <div class="discord-message">
-                            <div class="discord-message-content">
-                                <div class="webhook-name-div horizontal">
-                                    <p id="webhookName" class="normal bold">Webhook Name</p>
-                                </div>
-                                <div class="webhook-content-div">
-                                    <div id="webhookContent" class="normal markdown">Webhook Content</div>
-                                </div>
+                        <div class="discord-message-content">
+                            <div class="webhook-content-div">
+                                <div id="webhookContent" class="markdown">Webhook Content</div>
                             </div>
                         </div>
-                        <div id="embed-message" class="embed-message disabled rounded">
+
+                        <div id="embed-message" class="embed-message disabled">
                             <div id="embed-color-left" class="color-left"></div>
                             <div class="embed-message-content">
-                                <div class="embedAuthor horizontal bold center-horizontal">
+                                <div class="embed-author bold">
                                     <a id="embedAuthorLink" ref="https://discord.com/"> <img class="embedAuthorImg" src="https://cdn.discordapp.com/embed/avatars/0.png"></a>
-                                    <p id="embedAuthorName" class="normal">Embed Author</p>
+                                    <p id="embedAuthorName">Embed Author</p>
                                 </div>
                                 <div class="embedTitle">
-                                    <p id="embedTitleText" class="normal bold">Embed Title</p>
+                                    <p id="embedTitleText" class="bold">Embed Title</p>
                                 </div>
                                 <div class="embedDescription">
                                     <div id="embedDescriptionText" class="normal markdown">Embed Description</div>
                                 </div>
-                                <img class="rounded" id="embedImage" src="https://glitchii.github.io/embedbuilder/assets/media/banner.png">
+                                <img id="embedImage" src="">
                             </div>
                         </div>
                     </div>

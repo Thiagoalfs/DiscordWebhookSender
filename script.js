@@ -12,7 +12,7 @@ function renderMarkdown(text) {
 }
 
 
-document.getElementById("webhook-form").addEventListener("input", function (event){
+document.getElementById("webhook-form").addEventListener("input", function (event) {
     var inputWebhookLink = document.getElementById("webhook-link").value;
     var inputWebhookName = document.getElementById("webhook-name").value;
     var inputWebhookAvatar = document.getElementById("webhook-avatar").value;
@@ -20,39 +20,49 @@ document.getElementById("webhook-form").addEventListener("input", function (even
     var embedTitle = document.getElementById("embed-title").value;
     var embedDescription = document.getElementById("embed-description").value;
     var embedColor = document.getElementById("embed-color").value;
-    var inputEmbedImage = document.getElementById("embed-image").value; // Renomeado para clareza
+    var inputEmbedImage = document.getElementById("embed-image").value;
+    var embedColorBarLeft = document.getElementById("embed-color-left");
 
-    var embedColorBarLeft = document.getElementById("embed-color-left")
 
     if (/^#[0-9A-Fa-f]{6}$/.test(embedColor)) {
         embedColorBarLeft.style.backgroundColor = embedColor;
     } else {
-
-        embedColorBarLeft.style.backgroundColor = "#5865F2"; // Cor padrão de embed do Discord
+        embedColorBarLeft.style.backgroundColor = "#5865F2";
     }
 
 
     document.getElementById("webhookName").innerText = inputWebhookName || "Webhook Name";
-    var previewWebhookImageElement = document.querySelector("#webhookImage img");
+
+    
+    var previewWebhookImageElement = document.getElementById("webhookImage");
     if (previewWebhookImageElement) {
         previewWebhookImageElement.src = inputWebhookAvatar || "https://cdn.discordapp.com/embed/avatars/0.png";
     }
 
-    document.getElementById("webhookContent").innerHTML = renderMarkdown(messageContent || "Webhook Content");
-    document.getElementById("embedDescriptionText").innerHTML = renderMarkdown(embedDescription || "Embed Description");
-    document.getElementById("embedTitleText").innerText = embedTitle || "Embed Title";
 
+    document.getElementById("webhookContent").innerHTML = renderMarkdown(messageContent || "Webhook Content");
+    document.getElementById("embedTitleText").innerText = embedTitle || "Embed Title";
+    document.getElementById("embedDescriptionText").innerHTML = renderMarkdown(embedDescription || "Embed Description");
+
+    var embedMessage = document.getElementById("embed-message");
+    var hasEmbedContent = embedTitle.trim() || embedDescription.trim() || inputEmbedImage.trim();
+
+    if (hasEmbedContent) {
+        embedMessage.classList.remove("disabled");
+    } else {
+        embedMessage.classList.add("disabled");
+    }
 
     var embedImagePreviewElement = document.getElementById("embedImage");
     if (inputEmbedImage && inputEmbedImage !== "") {
         embedImagePreviewElement.src = inputEmbedImage;
-        document.getElementById("embedImage").classList.remove("disabled");
+        embedImagePreviewElement.classList.remove("disabled");
+    } else {
+        embedImagePreviewElement.src = "";
+        embedImagePreviewElement.classList.add("disabled");
     }
-    else {
-        document.getElementById("embedImage").src = "";
-        document.getElementById("embedImage").classList.add("disabled");
-    }
-
 });
 
-    
+window.addEventListener('load', () => {
+    document.getElementById("webhook-form").reset();
+});
