@@ -19,7 +19,7 @@
                     <div id="webhook-settings-fields" class="fields">
                             <label for="webhook-link">Webhook Link</label>
                         <div class="input-row">
-                            <input type="text" id="webhook-link" placeholder="https://discord.com/api/webhooks/...">
+                            <input type="text" id="webhook-link" autofocus placeholder="https://discord.com/api/webhooks/...">
                             <button id="submit-button" type="submit">Enviar</button>
                         </div>
                         <label for="webhook-name">Webhook Name</label>
@@ -45,10 +45,45 @@
                         <textarea id="embed-description" rows="3" placeholder="Description" maxlength="4096"></textarea>
 
                         <label for="embed-color">Embed Color</label>
-                        <input id="embed-color" type="text" placeholder="HEX color code" value="#5865F2">
+                        <div class="color-input-wrapper">
+                            <input id="embed-color" type="text" placeholder="HEX color code" value="#5865F2">
+                            <i class="fa-solid fa-palette color-icon"></i>
+                            <input type="color" id="color-picker" value="#5865F2">
+                        </div>
 
                         <label for="embed-image">Embed Image</label>
-                        <input type="text" id="embed-image" pattern="https?://.+" title="Include http://">
+                        <div class="image-input-wrapper">
+                            <input type="text" id="embed-image" pattern="https?://.+" title="Include http://">
+                            <i class="fa-solid fa-upload image-upload-icon"></i>
+                            <input type="file" id="image-file-input" accept="image/*">
+                        </div>
+                        <div class="section mini-section" id="embed-settings">
+                            <div class="dropdown-section">
+                                Author<i class="fa-solid fa-angle-down section-arrow"></i>
+                            </div>
+                            <div id="author-fields" class="disabled fields">
+                                <label for="author-name">Author Name</label>
+                                <input type="text" id="author-name" placeholder="Author Name">
+                                <label for="author-icon">Author Icon</label>
+                                <input type="text" id="author-icon" pattern="https?://.+" title="Include http://">
+                            </div>
+                        </div>
+
+                        <div class="section mini-section" id="footer-settings">
+                            <div class="dropdown-section">
+                                Footer<i class="fa-solid fa-angle-down section-arrow"></i>
+                            </div>
+                            <div id="footer-fields" class="disabled fields">
+                                <label for="footer-text">Footer Text</label>
+                                <input type="text" id="footer-text" placeholder="Footer Text">
+                                <label for="footer-icon">Footer Icon</label>
+                                <input type="text" id="footer-icon" pattern="https?://.+" title="Include http://">
+                                <div class="input-row" style="margin-top: 5px;">
+                                    <label for="embed-timestamp" style="margin: 0; cursor: pointer;">Add Timestamp</label>
+                                    <input type="checkbox" id="embed-timestamp">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -87,6 +122,12 @@
                                     <div id="embedDescriptionText" class="normal markdown">Embed Description</div>
                                 </div>
                                 <img id="embedImage" src="">
+                                <div id="embed-footer" class="embed-footer disabled">
+                                    <img id="embedFooterIcon" class="embedFooterIcon disabled" src="">
+                                    <span id="embedFooterText">Embed Footer</span>
+                                    <span id="embedFooterSeparator" class="disabled"> • </span>
+                                    <span id="embedTimestampText" class="disabled"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -99,5 +140,6 @@
     <script src="webhookPOST.js"></script>
     <script src="webhookGET.js"></script>
     <script src="sections.js"></script>
+    <script src="imageUploader.js" type="module"></script>
 </body>
 </html>

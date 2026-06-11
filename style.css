@@ -1,6 +1,10 @@
 :root {
     --bg: #2f3136;
     --fieldsbg: #212226;
+    --buttonhover: #5d606c;
+    --buttonborderhover: #7982a3;
+    --dropdownbg: #383a41;
+    --minidropdownbg: #41444d;
 }
 
 @import url('https://fonts.cdnfonts.com/css/gg-sans-2');
@@ -26,26 +30,57 @@ body {
 }
 
 .section {
-    width: 100%;
+    width: 90%;
+    background-color: var(--dropdownbg);
+    margin: 20px;
+    border-radius: 5px;
+}
+
+.mini-section {
+    background-color: var(--minidropdownbg);
+    width: 100% !important;
+    margin: 10px 0 0 0 !important;
+    border-radius: 5px;
+}
+
+.mini-section .dropdown-section {
+    margin-top: 0;
 }
 
 .fields {
+    margin-top: 20px;
     display:flex;
     flex-direction: column;
     justify-content: center;
     margin-left: 30px;
     margin-right: 40px;
     gap: 10px;
+    padding-bottom: 30px;
+    border-radius: 0 0 5px 5px;
+    max-height: 2000px;
+    opacity: 1;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.4s ease, padding 0.4s ease;
+}
+
+.section .fields.disabled {
+    display: flex !important;
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    pointer-events: none;
 }
 
 .dropdown-section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px;
-    border: 1px solid white;
+    margin-top: 20px;
+    border: 1px solid #73797b;
     padding: 10px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .left-container {
@@ -61,6 +96,10 @@ body {
     font-weight: 700;
 }
 
+.section-arrow {
+    transition: transform 0.3s ease;
+}
+
 .disabled {
     display: none;
 }
@@ -69,16 +108,38 @@ input[type="text"], textarea {
     border: 1px solid black;
     color: #ffffff;
     border-radius:5px;
-    width:100%;
+    width:96%;
     background-color: var(--fieldsbg);
     resize:none;
-    min-height: 30px;
+    padding:10px;
     font-family: "gg sans Normal", sans-serif;
     font-size: 12px;
 }
 
+input[type="checkbox"] {
+    appearance: none;
+    border: 1px solid black;
+    background-color:var(--fieldsbg);
+    -webkit-appearance: none;
+    height:30px;
+    max-width: 30px;
+    accent-color: #5865F2;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #5865F2;
+}
+
+
 input::placeholder {
-    color: #ffffff6b
+    color: #ffffff6b;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: var(--buttonborderhover);
 }
 
 .input-row {
@@ -93,7 +154,7 @@ input::placeholder {
 }
 
 button {
-    height: 34px;
+    height: 36px;
     min-width: 100px;
     background-color: var(--fieldsbg);
     color: #ffffff;
@@ -102,4 +163,64 @@ button {
     border: 2px solid black;
     border-radius: 4px;
     cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--buttonhover);
+    border-color: var(--buttonborderhover);
+}
+
+.color-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.color-input-wrapper input[type="text"] {
+    width: 99% !important;
+    padding-right: 40px !important
+}
+
+.color-icon {
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+    color: #b5bac1;
+    transition: color 0.2s;
+}
+
+.color-icon:hover {
+    color: #ffffff;
+}
+
+#color-picker {
+    display: none;
+}
+
+.image-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%; /* Match other inputs */
+}
+
+.image-input-wrapper input[type="text"] {
+    width: 100% !important;
+    padding-right: 40px !important; /* Space for the icon */
+}
+
+.image-upload-icon {
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+    color: #b5bac1;
+    transition: color 0.2s;
+}
+
+.image-upload-icon:hover {
+    color: #ffffff;
+}
+
+#image-file-input {
+    display: none;
 }

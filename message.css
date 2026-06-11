@@ -122,6 +122,25 @@ p, a, h1, h2, h3, h4, h5, h6, ul, ol, li, blockquote {
     max-height: 380px;
 }
 
+.embed-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.embedFooterIcon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+#embedFooterText, #embedFooterSeparator, #embedTimestampText {
+    font-size: 0.75rem;
+    color: #dbdee1;
+}
+
 .disabled {
     display: none !important;
 }

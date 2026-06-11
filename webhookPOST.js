@@ -9,6 +9,11 @@ document.getElementById("webhook-form").addEventListener("submit", async functio
     var embedDescription = document.getElementById("embed-description").value;
     var embedColor = document.getElementById("embed-color").value;
     var embedImage = document.getElementById("embed-image").value;
+    var authorName = document.getElementById("author-name").value;
+    var authorIcon = document.getElementById("author-icon").value;
+    var footerText = document.getElementById("footer-text").value;
+    var footerIcon = document.getElementById("footer-icon").value;
+    var includeTimestamp = document.getElementById("embed-timestamp").checked;
     var submitButton = document.getElementById("submit-button");
 
     var payload = {};
@@ -22,7 +27,8 @@ document.getElementById("webhook-form").addEventListener("submit", async functio
     if (webhookAvatarInput && webhookAvatarInput.startsWith("http")) {
         payload.avatar_url = webhookAvatarInput;
     }
-    if (embedTitle || embedDescription || embedImage) {
+    if (embedTitle || embedDescription || embedImage || authorName || authorIcon || 
+        footerText || footerIcon || includeTimestamp) {
         const decimalColor = parseInt(embedColor.replace("#", ""), 16);
 
         const embed = {
@@ -33,6 +39,24 @@ document.getElementById("webhook-form").addEventListener("submit", async functio
 
         if (embedImage) {
             embed.image = { url: embedImage };
+        }
+
+        if (authorName || authorIcon) {
+            embed.author = {
+                name: authorName || undefined,
+                icon_url: authorIcon || undefined
+            };
+        }
+
+        if (footerText || footerIcon) {
+            embed.footer = {
+                text: footerText || undefined,
+                icon_url: footerIcon || undefined
+            };
+        }
+
+        if (includeTimestamp) {
+            embed.timestamp = new Date().toISOString();
         }
 
         payload.embeds = [embed];
