@@ -160,3 +160,8 @@ colorPicker.addEventListener('input', (e) => {
     colorInput.value = newColor;
     colorInput.dispatchEvent(new Event('input', { bubbles: true }));
 });
+
+window.addEventListener('resize', () => {
+    window.scrollTo(0, 0);
+    document.querySelectorAll('.left-container, .right-container').forEach(container => container.scrollTop = 0);
+});
