@@ -49,82 +49,85 @@
                     </div>
                 </div>
                 
-                <div class="section" id="embed-settings">
-                    <div class="dropdown-section">
-                        Embed Settings <i class="fa-solid fa-angle-down section-arrow"></i>
-                    </div>
-                    <div id="embed-fields" class="disabled fields">
-                        <label for="embed-title">Embed Title</label>
-                        <input id="embed-title" type="text" placeholder="Title" maxlength="256">
-
-                        <label for="embed-description">Embed Description</label>
-                        <textarea id="embed-description" rows="3" placeholder="Description" maxlength="4096"></textarea>
-
-                        <label for="embed-color">Embed Color</label>
-                        <div class="color-input-wrapper">
-                            <input id="embed-color" type="text" placeholder="HEX color code" value="#5865F2">
-                            <i class="fa-solid fa-palette color-icon"></i>
-                            <input type="color" id="color-picker" value="#5865F2">
+                <div id="embeds-form-container">
+                    <div class="section embed-settings-item">
+                        <div class="dropdown-section">
+                            <span class="bold">Embed 1</span>
+                            <button type="button" class="btn-remove" style="display:none">Remove Embed</button> 
+                            <i class="fa-solid fa-angle-down section-arrow"></i>
                         </div>
+                        <div class="fields disabled">
 
-                        <label for="embed-image">Embed Image</label>
-                        <div class="image-input-wrapper">
-                            <input type="text" id="embed-image" pattern="https?://.+" placeholder="https://" title="Include http://">
-                            <i class="fa-solid fa-upload image-upload-icon"></i>
-                            <input type="file" id="image-file-input" accept="image/*">
-                        </div>
+                            <label>Embed Title</label>
+                            <input class="embed-title" type="text" placeholder="Title" maxlength="256">
 
-                        <div class="section mini-section" id="thumbnail-settings">
-                            <div class="dropdown-section">
-                                Thumbnail<i class="fa-solid fa-angle-down section-arrow"></i>
+                            <label>Embed Description</label>
+                            <textarea class="embed-description" rows="3" placeholder="Description" maxlength="4096"></textarea>
+                            <label>Embed Color</label>
+                            <div class="color-input-wrapper">
+                                <input class="embed-color" type="text" placeholder="HEX color code" value="#5865F2">
+                                <i class="fa-solid fa-palette color-icon"></i>
                             </div>
-                            <div id="thumbnail-fields" class="disabled fields">
-                                <label for="embed-thumbnail">Thumbnail Icon</label>
-                                <div class="image-input-wrapper">
-                                    <input type="text" id="embed-thumbnail" pattern="https?://.+" title="Include http://" placeholder="https://">
-                                    <i class="fa-solid fa-upload thumbnail-upload-icon"></i>
-                                    <input type="file" id="thumbnail-file-input" accept="image/*">
+                            <label>Embed Image</label>
+                            <div class="image-input-wrapper">
+                                <input type="text" class="embed-image" pattern="https?://.+" placeholder="https://" title="Include http://">
+                                <i class="fa-solid fa-upload image-upload-icon"></i>
+                                <input type="file" class="image-file-input" accept="image/*">
+                            </div>
+                            <div class="section mini-section">
+                                <div class="dropdown-section">
+                                    Thumbnail<i class="fa-solid fa-angle-down section-arrow"></i>
+                                </div>
+                                <div class="disabled fields">
+                                    <label>Thumbnail Icon</label>
+                                    <div class="image-input-wrapper">
+                                        <input type="text" class="embed-thumbnail" pattern="https?://.+" title="Include http://" placeholder="https://">
+                                        <i class="fa-solid fa-upload thumbnail-upload-icon"></i>
+                                        <input type="file" class="thumbnail-file-input" accept="image/*">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="section mini-section" id="author-settings">
-                            <div class="dropdown-section">
-                                Author<i class="fa-solid fa-angle-down section-arrow"></i>
-                            </div>
-                            <div id="author-fields" class="disabled fields">
-                                <label for="author-name">Author Name</label>
-                                <input type="text" id="author-name" placeholder="Author Name">
-                                <label for="author-icon">Author Icon</label>
-                                <div class="image-input-wrapper">
-                                    <input type="text" id="author-icon" pattern="https?://.+" title="Include http://" placeholder="https://">
-                                    <i class="fa-solid fa-upload author-icon-upload-icon"></i>
-                                    <input type="file" id="author-icon-file-input" accept="image/*">
+                            <div class="section mini-section">
+                                <div class="dropdown-section">
+                                    Author<i class="fa-solid fa-angle-down section-arrow"></i>
+                                </div>
+                                <div class="disabled fields">
+                                    <label>Author Name</label>
+                                    <input type="text" class="author-name" placeholder="Author Name">
+                                    <label>Author Icon</label>
+                                    <div class="image-input-wrapper">
+                                        <input type="text" class="author-icon" pattern="https?://.+" title="Include http://" placeholder="https://">
+                                        <i class="fa-solid fa-upload author-icon-upload-icon"></i>
+                                        <input type="file" class="author-icon-file-input" accept="image/*">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="section mini-section" id="footer-settings">
-                            <div class="dropdown-section">
-                                Footer<i class="fa-solid fa-angle-down section-arrow"></i>
-                            </div>
-                            <div id="footer-fields" class="disabled fields">
-                                <label for="footer-text">Footer Text</label>
-                                <input type="text" id="footer-text" placeholder="Footer Text">
-                                <label for="footer-icon">Footer Icon</label>
-                                <div class="image-input-wrapper">
-                                    <input type="text" id="footer-icon" pattern="https?://.+" title="Include http://" placeholder="https://">
-                                    <i class="fa-solid fa-upload footer-icon-upload-icon"></i>
-                                    <input type="file" id="footer-icon-file-input" accept="image/*">
+                            <div class="section mini-section">
+                                <div class="dropdown-section">
+                                    Footer<i class="fa-solid fa-angle-down section-arrow"></i>
                                 </div>
-                                <div class="input-row" style="margin-top: 5px;">
-                                    <label for="embed-timestamp" style="margin: 0; cursor: pointer;">Add Timestamp</label>
-                                    <input type="checkbox" id="embed-timestamp">
+                                <div class="disabled fields">
+                                    <label>Footer Text</label>
+                                    <input type="text" class="footer-text" placeholder="Footer Text">
+                                    <label>Footer Icon</label>
+                                    <div class="image-input-wrapper">
+                                        <input type="text" class="footer-icon" pattern="https?://.+" title="Include http://" placeholder="https://">
+                                        <i class="fa-solid fa-upload footer-icon-upload-icon"></i>
+                                        <input type="file" class="footer-icon-file-input" accept="image/*">
+                                    </div>
+                                    <div class="input-row" style="margin-top: 5px;">
+                                        <label style="margin: 0; cursor: pointer;">Add Timestamp</label>
+                                        <input type="checkbox" class="embed-timestamp">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="embed-controls">
+                    <button type="button" class="btn-add" id="add-embed">Add Embed</button>
+                </div>
+                <input type="color" id="color-picker" value="#5865F2">
             </form>
         </section>
 
@@ -147,28 +150,7 @@
                             </div>
                         </div>
 
-                        <div id="embed-message" class="embed-message disabled">
-                            <div id="embed-color-left" class="color-left"></div>
-                            <div class="embed-message-content">
-                                <div class="embed-author bold">
-                                    <a id="embedAuthorLink" ref="https://discord.com/"> <img class="embedAuthorImg" src="https://cdn.discordapp.com/embed/avatars/0.png"></a>
-                                    <p id="embedAuthorName">Embed Author</p>
-                                </div>
-                                <div class="embedTitle">
-                                    <p id="embedTitleText" class="bold">Embed Title</p>
-                                </div>
-                                <div class="embedDescription">
-                                    <div id="embedDescriptionText" class="normal markdown">Embed Description</div>
-                                </div>
-                                <img id="embedThumbnail" class="disabled" src="">
-                                <img id="embedImage" src="">
-                                <div id="embed-footer" class="embed-footer disabled">
-                                    <img id="embedFooterIcon" class="embedFooterIcon disabled" src="">
-                                    <span id="embedFooterText">Embed Footer</span>
-                                    <span id="embedFooterSeparator" class="disabled"> • </span>
-                                    <span id="embedTimestampText" class="disabled"></span>
-                                </div>
-                            </div>
+                        <div id="embeds-preview-container">
                         </div>
                     </div>
                 </div>

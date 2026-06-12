@@ -1,4 +1,7 @@
 document.querySelectorAll(".section").forEach(section => {
+    // Ignora seções que estão dentro do container de embeds para evitar conflito
+    if (section.closest('#embeds-form-container')) return;
+
     const sectionDiv = section.querySelector(".dropdown-section");
     const sectionFields = section.querySelector(".fields");
     const sectionArrow = section.querySelector(".section-arrow");

@@ -5,16 +5,6 @@ document.getElementById("webhook-form").addEventListener("submit", async functio
     var messageContent = document.getElementById("message-content").value;
     var webhookNameInput = document.getElementById("webhook-name").value;
     var webhookAvatarInput = document.getElementById("webhook-avatar").value; // Corrigido: era #webhookImage (uma <img>), não tem .value
-    var embedTitle = document.getElementById("embed-title").value;
-    var embedDescription = document.getElementById("embed-description").value;
-    var embedColor = document.getElementById("embed-color").value;
-    var embedThumbnail = document.getElementById("embed-thumbnail").value;
-    var embedImage = document.getElementById("embed-image").value;
-    var authorName = document.getElementById("author-name").value;
-    var authorIcon = document.getElementById("author-icon").value;
-    var footerText = document.getElementById("footer-text").value;
-    var footerIcon = document.getElementById("footer-icon").value;
-    var includeTimestamp = document.getElementById("embed-timestamp").checked;
     var submitButton = document.getElementById("submit-button");
 
     var payload = {};
@@ -28,43 +18,44 @@ document.getElementById("webhook-form").addEventListener("submit", async functio
     if (webhookAvatarInput && webhookAvatarInput.startsWith("http")) {
         payload.avatar_url = webhookAvatarInput;
     }
-    if (embedTitle || embedDescription || embedImage || authorName || authorIcon || 
-        footerText || footerIcon || includeTimestamp) {
-        const decimalColor = parseInt(embedColor.replace("#", ""), 16);
 
-        const embed = {
-            title: embedTitle || undefined,
-            description: embedDescription || undefined,
-            color: isNaN(decimalColor) ? undefined : decimalColor,
-        };
+    var embedSections = document.querySelectorAll(".embed-settings-item");
+    var embeds = [];
 
-        if (embedThumbnail) {
-            embed.thumbnail = { url: embedThumbnail };
-        }
+    embedSections.forEach(section => {
+        var title = section.querySelector(".embed-title").value;
+        var description = section.querySelector(".embed-description").value;
+        var color = section.querySelector(".embed-color").value;
+        var thumbnail = section.querySelector(".embed-thumbnail").value;
+        var image = section.querySelector(".embed-image").value;
+        var authorName = section.querySelector(".author-name").value;
+        var authorIcon = section.querySelector(".author-icon").value;
+        var footerText = section.querySelector(".footer-text").value;
+        var footerIcon = section.querySelector(".footer-icon").value;
+        var includeTimestamp = section.querySelector(".embed-timestamp").checked;
 
-        if (embedImage) {
-            embed.image = { url: embedImage };
-        }
-
-        if (authorName || authorIcon) {
-            embed.author = {
-                name: authorName || undefined,
-                icon_url: authorIcon || undefined
+        if (title || description || image || authorName || authorIcon || footerText || footerIcon || includeTimestamp) {
+            const decimalColor = parseInt(color.replace("#", ""), 16);
+            const embed = {
+                title: title || undefined,
+                description: description || undefined,
+                color: isNaN(decimalColor) ? undefined : decimalColor,
             };
+            if (thumbnail) embed.thumbnail = { url: thumbnail };
+            if (image) embed.image = { url: image };
+            if (authorName || authorIcon) {
+                embed.author = { name: authorName || undefined, icon_url: authorIcon || undefined };
+            }
+            if (footerText || footerIcon) {
+                embed.footer = { text: footerText || undefined, icon_url: footerIcon || undefined };
+            }
+            if (includeTimestamp) embed.timestamp = new Date().toISOString();
+            embeds.push(embed);
         }
+    });
 
-        if (footerText || footerIcon) {
-            embed.footer = {
-                text: footerText || undefined,
-                icon_url: footerIcon || undefined
-            };
-        }
-
-        if (includeTimestamp) {
-            embed.timestamp = new Date().toISOString();
-        }
-
-        payload.embeds = [embed];
+    if (embeds.length > 0) {
+        payload.embeds = embeds;
     }
 
     try {

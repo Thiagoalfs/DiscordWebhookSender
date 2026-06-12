@@ -81,6 +81,8 @@ body {
     border: 1px solid #73797b;
     padding: 10px;
     border-radius: 5px;
+    min-height: 40px;
+    box-sizing: border-box;
     cursor: pointer;
 }
 
@@ -132,10 +134,15 @@ input[type="checkbox"] {
     max-width: 30px;
     accent-color: #5865F2;
     cursor: pointer;
+    border-radius: 6px;
 }
 
 input[type="checkbox"]:checked {
-    background-color: #5865F2;
+    background-color: #3a3c49;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 
@@ -233,6 +240,35 @@ button:hover {
 input[type="file"] {
     display: none !important;
 }
+
+.embed-controls {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0 20px 20px;
+}
+
+.btn-add { 
+    background-color: none; 
+    border: none; 
+}
+
+.btn-add:hover { 
+    background-color: none; 
+}
+
+.btn-remove { 
+    background-color: #da373c;
+    border-color: #a1282c;
+    margin-bottom: 0;
+    height: 24px;
+    line-height: 1;
+    padding: 0 10px;
+    min-width: 80px;
+    font-size: 11px;
+    margin-left: auto;
+    margin-right: 15px;
+}
+.btn-remove:hover { background-color: #a1282c; }
 
 @media (max-width: 1000px) {
     body {
