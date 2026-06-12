@@ -73,7 +73,22 @@
                             <i class="fa-solid fa-upload image-upload-icon"></i>
                             <input type="file" id="image-file-input" accept="image/*">
                         </div>
-                        <div class="section mini-section" id="embed-settings">
+
+                        <div class="section mini-section" id="thumbnail-settings">
+                            <div class="dropdown-section">
+                                Thumbnail<i class="fa-solid fa-angle-down section-arrow"></i>
+                            </div>
+                            <div id="thumbnail-fields" class="disabled fields">
+                                <label for="embed-thumbnail">Thumbnail Icon</label>
+                                <div class="image-input-wrapper">
+                                    <input type="text" id="embed-thumbnail" pattern="https?://.+" title="Include http://" placeholder="https://">
+                                    <i class="fa-solid fa-upload thumbnail-upload-icon"></i>
+                                    <input type="file" id="thumbnail-file-input" accept="image/*">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section mini-section" id="author-settings">
                             <div class="dropdown-section">
                                 Author<i class="fa-solid fa-angle-down section-arrow"></i>
                             </div>
@@ -145,6 +160,7 @@
                                 <div class="embedDescription">
                                     <div id="embedDescriptionText" class="normal markdown">Embed Description</div>
                                 </div>
+                                <img id="embedThumbnail" class="disabled" src="">
                                 <img id="embedImage" src="">
                                 <div id="embed-footer" class="embed-footer disabled">
                                     <img id="embedFooterIcon" class="embedFooterIcon disabled" src="">

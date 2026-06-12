@@ -14,13 +14,15 @@ body {
     color: #ffffff;
     background-color:var(--bg);
     margin: 0;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .container {
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
 }
 
@@ -51,13 +53,12 @@ body {
     margin-top: 20px;
     display:flex;
     flex-direction: column;
-    justify-content: center;
     margin-left: 30px;
     margin-right: 40px;
     gap: 10px;
     padding-bottom: 30px;
     border-radius: 0 0 5px 5px;
-    max-height: 2000px;
+    max-height: 5000px; 
     opacity: 1;
     overflow: hidden;
     transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.4s ease, padding 0.4s ease;
@@ -85,6 +86,12 @@ body {
 
 .left-container {
     width: 50%;
+}
+
+#webhook-form {
+    display: block; 
+    height: auto;
+    padding-bottom: 100px; 
 }
 
 .right-container {
@@ -178,7 +185,7 @@ button:hover {
 }
 
 .color-input-wrapper input[type="text"] {
-    width: 100% !important;
+    width: 92% !important;
     padding-right: 40px !important
 }
 
@@ -206,14 +213,12 @@ button:hover {
 }
 
 .image-input-wrapper input[type="text"] {
-    width: 100% !important;
+    width: 92% !important;
     padding-right: 40px !important;
 }
 
-.image-upload-icon, 
-.webhook-avatar-upload-icon,
-.author-icon-upload-icon,
-.footer-icon-upload-icon {
+
+.fa-upload{
     position: absolute;
     right: 15px;
     cursor: pointer;
@@ -221,13 +226,31 @@ button:hover {
     transition: color 0.2s;
 }
 
-.image-upload-icon:hover, 
-.webhook-avatar-upload-icon:hover,
-.author-icon-upload-icon:hover,
-.footer-icon-upload-icon:hover {
+.fa-upload:hover {
     color: #ffffff;
 }
 
 input[type="file"] {
     display: none !important;
+}
+
+@media (max-width: 1000px) {
+    body {
+        overflow: visible;
+        height: auto;
+        width: 100dvw;
+        overflow-x: hidden;
+    }
+
+    .container {
+        flex-direction: column-reverse;
+        overflow: visible;
+        height: auto;
+    }
+    
+    .left-container, .right-container {
+        width: 100dvw;
+        height: auto;
+        overflow-y: auto;
+    }
 }

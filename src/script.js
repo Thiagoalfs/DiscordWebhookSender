@@ -20,6 +20,7 @@ document.getElementById("webhook-form").addEventListener("input", function (even
     var embedTitle = document.getElementById("embed-title").value;
     var embedDescription = document.getElementById("embed-description").value;
     var embedColor = document.getElementById("embed-color").value;
+    var embedThumbnail = document.getElementById("embed-thumbnail").value;
     var inputEmbedImage = document.getElementById("embed-image").value;
     var authorName = document.getElementById("author-name").value;
     var authorIcon = document.getElementById("author-icon").value;
@@ -115,13 +116,22 @@ document.getElementById("webhook-form").addEventListener("input", function (even
 
     var embedMessage = document.getElementById("embed-message");
     var hasEmbedContent = embedTitle.trim() || embedDescription.trim() || inputEmbedImage.trim() || 
-                          authorName.trim() || authorIcon.trim() || footerText.trim() || 
-                          footerIcon.trim() || includeTimestamp;
+                          embedThumbnail.trim() || authorName.trim() || authorIcon.trim() || 
+                          footerText.trim() || footerIcon.trim() || includeTimestamp;
 
     if (hasEmbedContent) {
         embedMessage.classList.remove("disabled");
     } else {
         embedMessage.classList.add("disabled");
+    }
+
+    var embedThumbnailPreviewElement = document.getElementById("embedThumbnail");
+    if (embedThumbnail && embedThumbnail.trim() !== "") {
+        embedThumbnailPreviewElement.src = embedThumbnail;
+        embedThumbnailPreviewElement.classList.remove("disabled");
+    } else {
+        embedThumbnailPreviewElement.src = "";
+        embedThumbnailPreviewElement.classList.add("disabled");
     }
 
     var embedImagePreviewElement = document.getElementById("embedImage");

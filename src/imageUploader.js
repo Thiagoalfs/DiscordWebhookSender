@@ -60,3 +60,4 @@ setupUploader('.image-upload-icon', 'image-file-input', 'embed-image');
 setupUploader('.webhook-avatar-upload-icon', 'webhook-avatar-file-input', 'webhook-avatar');
 setupUploader('.author-icon-upload-icon', 'author-icon-file-input', 'author-icon');
 setupUploader('.footer-icon-upload-icon', 'footer-icon-file-input', 'footer-icon');
+setupUploader('.thumbnail-upload-icon', 'thumbnail-file-input', 'embed-thumbnail');

@@ -1,3 +1,7 @@
+:root {
+    --bg: #2f3136;
+}
+
 .navbar {
     width: 100dvw;
     display: flex;
@@ -5,6 +9,10 @@
     gap: 50px;
     padding:20px;
     border-bottom: 1px solid #73797b;
+    position: sticky;
+    top: 0;
+    background-color: var(--bg);
+    z-index: 100;
 }
 
 .nav-links {

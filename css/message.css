@@ -115,6 +115,16 @@ p, a, h1, h2, h3, h4, h5, h6, ul, ol, li, blockquote {
     overflow-wrap: break-word;
 }
 
+#embedThumbnail {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+    object-fit: contain;
+}
+
 #embedImage {
     margin-top: 16px;
     border-radius: 4px;

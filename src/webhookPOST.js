@@ -8,6 +8,7 @@ document.getElementById("webhook-form").addEventListener("submit", async functio
     var embedTitle = document.getElementById("embed-title").value;
     var embedDescription = document.getElementById("embed-description").value;
     var embedColor = document.getElementById("embed-color").value;
+    var embedThumbnail = document.getElementById("embed-thumbnail").value;
     var embedImage = document.getElementById("embed-image").value;
     var authorName = document.getElementById("author-name").value;
     var authorIcon = document.getElementById("author-icon").value;
@@ -36,6 +37,10 @@ document.getElementById("webhook-form").addEventListener("submit", async functio
             description: embedDescription || undefined,
             color: isNaN(decimalColor) ? undefined : decimalColor,
         };
+
+        if (embedThumbnail) {
+            embed.thumbnail = { url: embedThumbnail };
+        }
 
         if (embedImage) {
             embed.image = { url: embedImage };
